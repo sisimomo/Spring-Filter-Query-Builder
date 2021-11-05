@@ -1,0 +1,23 @@
+{
+  "name": "spring-filter-query-builder",
+  "version": "0.1.0",
+  "description": "A simple Query Builder for Spring Filter",
+  "main": "scr/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sisimomo/Spring-Filter-Query-Builder.git"
+  },
+  "keywords": [
+    "Spring",
+    "Filter"
+  ],
+  "author": "Sisimomo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sisimomo/Spring-Filter-Query-Builder/issues"
+  },
+  "homepage": "https://github.com/sisimomo/Spring-Filter-Query-Builder#readme"
+}
