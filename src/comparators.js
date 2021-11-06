@@ -10,8 +10,8 @@ class Comparator extends Item { //Abstract
 			throw `${new.target.name} parameter 'selector' must be a Function or a String!`;
 		}
 		if (value) {
-			if (!(typeof value === 'string' || value instanceof String)) {
-				throw `${new.target.name} parameter 'value' must be a String!`;
+			if (!(typeof value === 'string' || value instanceof String || typeof value === 'number' || value instanceof Number)) {
+				throw `${new.target.name} parameter 'value' must be a String or a Number!`;
 			}
 		}
 		this.selector = selector;
@@ -21,7 +21,11 @@ class Comparator extends Item { //Abstract
 
 	toString() {
 		if (this.value) {
-			return `${this.selector} ${this.comparatorKeyWord} ${this.value}`;
+			if (typeof this.value === 'number' || this.value instanceof Number) {
+				return `${this.selector} ${this.comparatorKeyWord} ${this.value}`;
+			} else {
+				return `${this.selector} ${this.comparatorKeyWord} '${this.value}'`;
+			}
 		} else {
 			return `${this.selector} ${this.comparatorKeyWord}`;
 		}
@@ -30,37 +34,37 @@ class Comparator extends Item { //Abstract
 
 class Like extends Comparator {
 	constructor(selector, value) {
-		super(selector, "~",value);
+		super(selector, "~", value);
 	}
 }
 
 class Equal extends Comparator {
 	constructor(selector, value) {
-		super(selector, ":",value);
+		super(selector, ":", value);
 	}
 }
 
 class NotEqual extends Comparator {
 	constructor(selector, value) {
-		super(selector, "!",value);
+		super(selector, "!", value);
 	}
 }
 
 class Gt extends Comparator {
 	constructor(selector, value) {
-		super(selector, ">",value);
+		super(selector, ">", value);
 	}
 }
 
 class Ge extends Comparator {
 	constructor(selector, value) {
-		super(selector, ">:",value);
+		super(selector, ">:", value);
 	}
 }
 
 class Lt extends Comparator {
 	constructor(selector, value) {
-		super(selector, "<",value);
+		super(selector, "<", value);
 	}
 }
 class Le extends Comparator {
@@ -97,6 +101,11 @@ class In extends Comparator {
 	constructor(selector, ...values) {
 		super(selector, "IN", "('" + values.join("', '") + "')");
 	}
+
+	toString() {
+		return `${this.selector} ${this.comparatorKeyWord} ${this.value}`;
+	}
+
 }
 
 export { Comparator, Like, Equal, NotEqual, Gt, Ge, Lt, Le, IsNull, IsNotNull, IsEmpty, IsNotEmpty, In };

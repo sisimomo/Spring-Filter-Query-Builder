@@ -2,7 +2,7 @@ import { Item } from './item.js';
 import { Comparator } from './comparators.js';
 
 class Function extends Item { //Abstract
-	constructor(selector, functionKeyWord) {
+	constructor(functionKeyWord, selector) {
 		if (new.target === Comparator) {
 			throw new TypeError("Cannot construct " + new.target.name + " instances directly");
 		}
@@ -15,91 +15,96 @@ class Function extends Item { //Abstract
 	}
 
 	toString() {
-		return this.functionKeyWord + " (" + this.selector + ")";
+		if (this.selector) {
+			return this.functionKeyWord + "(" + this.selector + ")";
+		} else {
+			return this.functionKeyWord + "()";
+
+		}
 	}
 }
 
 class Absolute extends Function {
 	constructor(selector) {
-		super(selector, "ABSOLUTE");
+		super("ABSOLUTE", selector);
 	}
 }
 
 class Average extends Function {
 	constructor(selector) {
-		super(selector, "AVERAGE");
+		super("AVERAGE", selector);
 	}
 }
 
 class Min extends Function {
 	constructor(selector) {
-		super(selector, "MIN");
+		super("MIN", selector);
 	}
 }
 
 class Max extends Function {
 	constructor(selector) {
-		super(selector, "MAX");
+		super("MAX", selector);
 	}
 }
 
 class Sum extends Function {
 	constructor(selector) {
-		super(selector, "SUM");
+		super("SUM", selector);
 	}
 }
 
 class CurrentDate extends Function {
 	constructor() {
-		super("", "CURRENTDATE");
+		super("CURRENTDATE");
 	}
 }
 
 class CurrentTime extends Function {
 	constructor() {
-		super("", "CURRENTTIME");
+		super("CURRENTTIME");
 	}
 }
 
 class CurrentTimestamp extends Function {
 	constructor() {
-		super("", "CURRENTTIMESSTAMP");
+		super("CURRENTTIMESSTAMP");
 	}
 }
 
 class Size extends Function {
 	constructor(selector) {
-		super(selector, "SIZE");
+		super("SIZE", selector);
 	}
 }
 
 class Length extends Function {
 	constructor(selector) {
-		super(selector, "LENGTH");
+		super("LENGTH", selector);
 	}
 }
 
 class Trim extends Function {
 	constructor(selector) {
-		super(selector, "TRIM");
+		super("TRIM", selector);
 	}
 }
 
 class Upper extends Function {
 	constructor(selector) {
-		super(selector, "UPPER");
+		super("UPPER", selector);
 	}
 }
 
 class Lower extends Function {
 	constructor(selector) {
-		super(selector, "LOWER");
+		super("LOWER", selector);
 	}
 }
 
 class Concat extends Function {
-	constructor(selector) {
-		super(selector, "CONCAT");
+	constructor(...selectors) {
+		super("CONCAT", "('" + selectors.join(", ") + "')");
 	}
 }
 
