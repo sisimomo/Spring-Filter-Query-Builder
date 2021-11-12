@@ -15,7 +15,7 @@ class Function extends Item { //Abstract
 	}
 
 	toString() {
-		if (this.selector) {
+		if (this.selector != undefined) {
 			return this.functionKeyWord + "(" + this.selector + ")";
 		} else {
 			return this.functionKeyWord + "()";

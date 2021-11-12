@@ -1,8 +1,8 @@
 {
   "name": "spring-filter-query-builder",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A simple Query Builder for Spring Filter",
-  "main": "scr/index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

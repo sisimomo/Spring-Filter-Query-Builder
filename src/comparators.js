@@ -20,7 +20,7 @@ class Comparator extends Item { //Abstract
 	}
 
 	toString() {
-		if (this.value) {
+		if (this.value != undefined) {
 			if (typeof this.value === 'number' || this.value instanceof Number) {
 				return `${this.selector} ${this.comparatorKeyWord} ${this.value}`;
 			} else {
