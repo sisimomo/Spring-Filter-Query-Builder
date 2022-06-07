@@ -63,8 +63,8 @@ export class SpringFilterQueryBuilder {
 		return new IsNotEmpty(selector, value);
 	}
 
-	static in(selector, value) {
-		return new In(selector, value);
+	static in(selector, ...value) {
+		return new In(selector, ...value);
 	}
 
 	static absolute(selector) {
