@@ -1,0 +1,17 @@
+# node_modules directory
+node_modules/
+
+# dist directory
+dist/
+
+# Vscode directory
+.vscode/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
