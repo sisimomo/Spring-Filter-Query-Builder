@@ -1,9 +1,9 @@
 import { Item } from './item';
 
-abstract class Operator implements Item {
+export abstract class Operator implements Item {
   protected constructor(protected operatorKeyWord: string, protected items: Item[]) {}
 
-  public toString() {
+  public toString(): string {
     return '(' + this.items.map((item) => item.toString()).join(` ${this.operatorKeyWord} `) + ')';
   }
 }
