@@ -1,7 +1,7 @@
 import { Function } from './functions';
 import { Item, valuesToValue } from './item';
 
-abstract class Comparator implements Item {
+export abstract class Comparator implements Item {
   // false positive
   // eslint-disable-next-line @typescript-eslint/ban-types
   constructor(protected selector: Function | string, protected comparatorKeyWord: string, protected value?: string | number) {}

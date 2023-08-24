@@ -22,6 +22,13 @@ import {
 import { Item } from './item';
 import { And, Exists, Not, Or } from './operators';
 
+/********* Abstract Classes *********/
+
+export { Comparator } from './comparators';
+export { Function } from './functions';
+export { Item } from './item';
+export { Operator } from './operators';
+
 /********* Operators *********/
 
 export function sfAnd(items: Item[]): And {
