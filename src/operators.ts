@@ -26,7 +26,10 @@ export class Not extends Operator {
   }
 
   public toString(): string {
-    return `${this.operatorKeyWord} ${this.items[0].toString()}`;
+    if (this.items[0] instanceof Operator) {
+      return `${this.operatorKeyWord}${this.items[0].toString()}`;
+    }
+    return `${this.operatorKeyWord}(${this.items[0].toString()})`;
   }
 }
 
