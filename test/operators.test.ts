@@ -9,5 +9,9 @@ test('or', () => {
 });
 
 test('not', () => {
-  expect(sfNot(sfOr([sfGt('id', 100), sfIsNull('category.order')])).toString()).toBe('not (id > 100 or category.order is null)');
+  expect(sfNot(sfOr([sfGt('id', 100), sfIsNull('category.order')])).toString()).toBe('not(id > 100 or category.order is null)');
+});
+
+test('not', () => {
+  expect(sfNot(sfGt('id', 100)).toString()).toBe('not(id > 100)');
 });
