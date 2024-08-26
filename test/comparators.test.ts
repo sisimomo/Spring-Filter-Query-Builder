@@ -95,3 +95,7 @@ test('not in string[]', () => {
 test('not in number[]', () => {
   expect(sfNotIn('status', [1, 2]).toString()).toBe('status not in [1, 2]');
 });
+
+test('.toString() can handle 0 as number', () => {
+  expect(sfEqual('id', 0).toString()).toBe('id : 0');
+});
