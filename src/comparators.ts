@@ -7,14 +7,14 @@ export abstract class Comparator implements Item {
   constructor(protected selector: Function | string, protected comparatorKeyWord: string, protected value?: string | number) {}
 
   toString(): string {
-    if (this.value) {
-      if (typeof this.value === 'number') {
-        return `${this.selector} ${this.comparatorKeyWord} ${this.value}`;
-      } else {
-        return `${this.selector} ${this.comparatorKeyWord} '${this.value}'`;
-      }
+    if (typeof this.value === 'undefined' || this.value === null) {
+      return `${this.selector} ${this.comparatorKeyWord}`;
     }
-    return `${this.selector} ${this.comparatorKeyWord}`;
+    if (typeof this.value === 'number') {
+      return `${this.selector} ${this.comparatorKeyWord} ${this.value}`;
+    } else {
+      return `${this.selector} ${this.comparatorKeyWord} '${this.value}'`;
+    }
   }
 }
 
